@@ -14,8 +14,8 @@
 </head>
 <body>
     <header>
-        <div class="header-container">
-            <a href="/" class="logo">Школа №3 м. Лубни</a>
+        <div class="container header-inner">
+            <a href="/" class="logo">🏫 <span>Школа №3</span></a>
             <nav>
                 {% macro renderNavListItem(entry) -%}
                 <li>
@@ -33,23 +33,39 @@
                     {%- for entry in collections.all | eleventyNavigation %}
                         {{ renderNavListItem(entry) }}
                     {%- endfor %}
-                    <li><a href="/admin/" style="opacity: 0.8; font-size: 0.9em;">➕CMS</a></li>
+                    <li><a href="/admin/" class="btn" style="padding: 8px 16px; border-radius: 6px; font-size: 0.9em; margin-left: 10px;">Вхід</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main>
-        <!-- Основний контент сторінки -->
-        <article>
-            {{ content | safe }}
-        </article>
+        <div class="container">
+            <article class="content-wrapper">
+                {{ content | safe }}
+            </article>
+        </div>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Лубенська спеціалізована школа №3. Всі права захищено.</p>
-            <p>вул. Монастирська, 35, м. Лубни, Полтавська обл.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Школа №3 м. Лубни</h3>
+                    <p>Навчальний заклад нового типу, де кожен учень - особистість.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Контакти</h3>
+                    <p>📍 вул. Монастирська, 35<br>📞 (05361) 7-22-33<br>✉️ school3@example.com</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Навігація</h3>
+                     <p><a href="/admin/" style="color: inherit; text-decoration: underline;">Адміністрування</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Лубенська спеціалізована школа №3. Всі права захищено.</p>
+            </div>
         </div>
     </footer>
 
