@@ -1,0 +1,12 @@
+{
+  "name": "school3-lubny-website",
+  "version": "1.0.0",
+  "description": "Сайт Школи №3 м. Лубни на Eleventy та Decap CMS",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

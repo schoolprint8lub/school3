@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | Школа №3 м. Лубни</title>
+    <meta name="description" content="Офіційний сайт Школи №3 міста Лубни">
+    
+    <!-- Підключення стилів -->
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <!-- Netlify Identity -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">Школа №3 м. Лубни</a>
+            <nav>
+                <ul>
+                    <li><a href="/">Головна</a></li>
+                    <li><a href="#">Новини</a></li>
+                    <li><a href="#">Про школу</a></li>
+                    <li><a href="#">Контакти</a></li>
+                    <li><a href="/admin/">Вхід</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Основний контент сторінки -->
+        <article>
+            {{ content | safe }}
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Лубенська спеціалізована школа №3. Всі права захищено.</p>
+            <p>вул. Монастирська, 35, м. Лубни, Полтавська обл.</p>
+        </div>
+    </footer>
+
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
