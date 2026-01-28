@@ -14,4 +14,11 @@ collections:
     fields:
       - {label: "Заголовок", name: "title", widget: "string"}
       - {label: "Дата публікації", name: "date", widget: "datetime"}
+      - {label: "Layout", name: "layout", widget: "hidden", default: "base.njk"}
+      - {label: "Permalink", name: "permalink", widget: "string", hint: "Наприклад: /contacts/ (залиште пустим для автоматичного /pages/name/)", required: false}
+      - {label: "В меню", name: "eleventyNavigation", widget: "object", fields: [
+          {label: "Назва в меню", name: "key", widget: "string"},
+          {label: "Батьківський пункт (для підменю)", name: "parent", widget: "string", required: false, hint: "Напишіть 'Назву в меню' батьківської сторінки (наприклад: Про школу)"}, 
+          {label: "Порядок", name: "order", widget: "number", default: 10, required: false}
+        ]}
       - {label: "Тіло сторінки", name: "body", widget: "markdown"}

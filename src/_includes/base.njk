@@ -17,12 +17,23 @@
         <div class="header-container">
             <a href="/" class="logo">Школа №3 м. Лубни</a>
             <nav>
+                {% macro renderNavListItem(entry) -%}
+                <li>
+                  <a href="{{ entry.url }}">{{ entry.title }}</a>
+                  {%- if entry.children.length -%}
+                  <ul class="dropdown">
+                    {%- for child in entry.children %}{{ renderNavListItem(child) }}{% endfor -%}
+                  </ul>
+                  {%- endif -%}
+                </li>
+                {%- endmacro %}
+
                 <ul>
                     <li><a href="/">Головна</a></li>
-                    <li><a href="#">Новини</a></li>
-                    <li><a href="#">Про школу</a></li>
-                    <li><a href="#">Контакти</a></li>
-                    <li><a href="/admin/">Вхід</a></li>
+                    {%- for entry in collections.all | eleventyNavigation %}
+                        {{ renderNavListItem(entry) }}
+                    {%- endfor %}
+                    <li><a href="/admin/" style="opacity: 0.8; font-size: 0.9em;">➕CMS</a></li>
                 </ul>
             </nav>
         </div>
