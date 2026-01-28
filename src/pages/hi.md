@@ -5,6 +5,6 @@ layout: base.njk
 eleventyNavigation:
   order: 10
   key: hi
-  parent: hh
+  parent: ""
 ---
 212121
